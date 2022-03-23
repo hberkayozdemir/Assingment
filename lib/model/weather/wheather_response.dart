@@ -22,7 +22,7 @@ class WheatherResponse {
 }
 
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 class Current {
   
 String? observationTime;

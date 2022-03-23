@@ -12,7 +12,12 @@ TextStyle hl1 = GoogleFonts.lato(
 TextStyle hl2 = GoogleFonts.lato(
     textStyle: TextStyle(
         fontSize: 22, color: wsecondary, fontWeight: FontWeight.w400));
-
+TextStyle hl3 = GoogleFonts.lato(
+    textStyle: TextStyle(
+        fontSize: 60, color: Colors.white,letterSpacing: 2, fontWeight: FontWeight.w300));
+TextStyle hl4 = GoogleFonts.lato(
+    textStyle: TextStyle(
+        fontSize: 45, color: Colors.white,letterSpacing: 1.4, fontWeight: FontWeight.w300));
 
 TextStyle subtitleTextStyle = GoogleFonts.openSans(
     textStyle:
@@ -20,3 +25,5 @@ TextStyle subtitleTextStyle = GoogleFonts.openSans(
 
 TextStyle bodyTextStyle = GoogleFonts.openSans(
     textStyle: const TextStyle(fontSize: 14, color: wprimary));
+TextStyle boxstyle=GoogleFonts.lato(textStyle: TextStyle(
+        fontSize: 18, color: Colors.white,letterSpacing: 1.4, fontWeight: FontWeight.w300));

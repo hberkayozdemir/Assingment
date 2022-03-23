@@ -8,18 +8,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WheatherCubit extends Cubit<ResultState<Current>> {
   final APIRepository apiRepository;
-  final String city;
+ 
 
 set city(String value){
   city=value;
 
 }
-  WheatherCubit({required this.apiRepository,this.city:"London"}) : super(Idle());
+  WheatherCubit({required this.apiRepository}) : super(Idle());
 
 
-  loadMovies() async {
+  loadWheatherData(String cityQuery) async {
     emit(ResultState.loading());
-    ApiResult<Current> apiResult = await apiRepository.fetchWheather(city);
+    ApiResult<Current> apiResult = await apiRepository.fetchWheather(cityQuery);
     apiResult.when(success: (Current data) {
       emit(ResultState.data(data));
     }, failure: (DioExceptions error) {

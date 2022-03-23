@@ -4,18 +4,21 @@ import 'package:assignment/logic/cubit/result_state.dart';
 import 'package:assignment/logic/cubit/wheather_cubit.dart';
 import 'package:assignment/model/weather/wheather_response.dart';
 import 'package:assignment/network/dio_exception.dart';
-import 'package:assignment/ui/widget/empty_widget.dart';
-import 'package:assignment/ui/widget/error_widget.dart';
-import 'package:assignment/ui/widget/loading_widget.dart';
-import 'package:assignment/ui/widget/weather_calculated.dart';
+import 'package:assignment/ui/widget/city_weather/empty_widget.dart';
+import 'package:assignment/ui/widget/city_weather/error_widget.dart';
+import 'package:assignment/ui/widget/city_weather/loading_widget.dart';
+import 'package:assignment/ui/widget/city_weather/weather_calculated.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
 class CityWeather extends StatefulWidget {
+  String? cityQuery;
+  String? appbartitle;
 
-   CityWeather({Key? key}) : super(key: key);
-
+  CityWeather({Key? key, @PathParam() this.cityQuery,this.appbartitle}) : super(key: key);
 
   @override
   State<CityWeather> createState() => _CityWeatherState();
@@ -24,40 +27,42 @@ class CityWeather extends StatefulWidget {
 class _CityWeatherState extends State<CityWeather> {
   @override
   void initState() {
-  
-    BlocProvider.of<WheatherCubit>(context).loadMovies();
+    if( widget.cityQuery!.isEmpty){
+setState(() {
+  widget.cityQuery= "Paris"; // buraya ipden adres alma yerleşicek
+  widget.appbartitle="My Current Location,"+widget.cityQuery.toString();
+
+});
+    }
+    BlocProvider.of<WheatherCubit>(context)
+        .loadWheatherData(widget.cityQuery.toString());
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-  
- final cubit = context.watch<WheatherCubit>();
-Size size=MediaQuery.of(context).size;
+    final cubit = context.watch<WheatherCubit>();
+    Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-
-      extendBodyBehindAppBar: true,
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
-
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(cubit.city),
+              Text(widget.cityQuery.toString()),
               Icon(Icons.location_on)
             ],
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: GestureDetector(child:Icon(Icons.settings), onTap: (){
-
-
-
-          }, ),
-          actions: [IconButton(onPressed: (){
-      
-          }, icon: const Icon(Icons.search))],
-
+          leading: GestureDetector(
+            child: Icon(Icons.settings),
+            onTap: () {},
+          ),
+          actions: [
+            IconButton(onPressed: () {}, icon: const Icon(Icons.search))
+          ],
         ),
         body: ResponsiveManager(
             mobile: RefreshIndicator(
@@ -77,7 +82,8 @@ Size size=MediaQuery.of(context).size;
                   width: size.width,
                   child: Center(
                     child: BlocBuilder<WheatherCubit, ResultState<Current>>(
-                      builder: (BuildContext context, ResultState<Current> state) {
+                      builder:
+                          (BuildContext context, ResultState<Current> state) {
                         return state.when(
                           loading: () {
                             return Center(child: LoadingScreen());
@@ -90,7 +96,9 @@ Size size=MediaQuery.of(context).size;
                           },
                           error: (DioExceptions error) {
                             return Center(
-                                child: ErrorScreen(error:DioExceptions.getErrorMessage(error)));
+                                child: ErrorScreen(
+                                    error:
+                                        DioExceptions.getErrorMessage(error)));
                           },
                         );
                       },
