@@ -10,6 +10,7 @@ görüp daha iyi bir mühendis olmamı sağladı
 alberto miolanın kitabından ileriyorum.
 Sonuç ne olur bilmem ama kendime sayenizde çok şey kattım teşekkürler.
 12:30 gibi gönderdim fakat gece commitler atıp testi bitirebilirim.
+Dead line perşembe günü
 */
 
 }

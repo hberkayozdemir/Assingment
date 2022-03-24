@@ -38,7 +38,7 @@ class Symbol extends StatelessWidget {
           animation: "animate",));
     }
     
-     else if (desc.contains("Rainy")||desc.contains("Rain")) {
+     else if (desc.contains("Rainy")||desc.contains("Rain")||desc.contains("rain")) {
       return Container(
         height: 250, width: 350,
         child:FlareActor("assets/objects/rainfall.flr",

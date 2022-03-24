@@ -34,6 +34,10 @@ setState(() {
 
 });
     }
+    else{
+       BlocProvider.of<WheatherCubit>(context)
+        .loadWheatherData(widget.cityQuery.toString());
+    }
     BlocProvider.of<WheatherCubit>(context)
         .loadWheatherData(widget.cityQuery.toString());
     super.initState();
