@@ -43,7 +43,7 @@ class Informations extends StatelessWidget {
                   ),
                 ),
                Flexible(
-                  flex: 3,
+                  flex: 4,
                   child: Container(
                      margin: EdgeInsets.only(left:15),
                     padding: EdgeInsets.all(15),
@@ -62,7 +62,7 @@ class Informations extends StatelessWidget {
                   ),
                 ),
                           Flexible(
-                  flex: 3,
+                  flex: 4,
                              child: Container(
                                
                                margin: EdgeInsets.only(left:15),
@@ -76,6 +76,7 @@ class Informations extends StatelessWidget {
                     children: [
                       Text("Humudity",style: boxstyle,),
                       Text(humudity.toString(),style: boxstyle,),
+                      Icon(Icons.water,color : Colors.white)
                      
                     ],
                   )),

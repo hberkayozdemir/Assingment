@@ -12,14 +12,49 @@ class Symbol extends StatelessWidget {
   }
 
   Widget getSymbolWidget(String desc) {
-    if (desc.contains("Sunny")) {
-      return FlareActor();
+    if (desc.contains("Sunny")||desc.contains("Clear")) {
+      return Container(
+        height: 300, width: 350,
+        child:FlareActor("assets/objects/sun.flr",
+          alignment: Alignment.center,
+          isPaused: false,
+          fit: BoxFit.cover,
+          animation: '1',));
     } else if (desc.contains("Snowy")) {
-      return FlareActor();
+      return Container(
+        height: 250, width: 350,
+        child:FlareActor("assets/objects/snowfall.flr",
+          alignment: Alignment.center,
+          isPaused: false,
+          fit: BoxFit.cover,
+          animation: "animate",));
     } else if (desc.contains("Stormy")) {
-      return FlareActor();
-    } else {
-      return FlareActor();
+      return Container(
+        height: 250, width: 350,
+        child:FlareActor("assets/objects/thunder.flr",
+          alignment: Alignment.center,
+          isPaused: false,
+          fit: BoxFit.cover,
+          animation: "animate",));
+    }
+    
+     else if (desc.contains("Rainy")||desc.contains("Rain")) {
+      return Container(
+        height: 250, width: 350,
+        child:FlareActor("assets/objects/rainfall.flr",
+          alignment: Alignment.center,
+          isPaused: false,
+          fit: BoxFit.cover,
+          animation: "animate",));
+    }
+     else {
+      return Container(
+        height: 250, width: 250,
+        child:FlareActor("assets/objects/Penguin.flr",
+          alignment: Alignment.center,
+          isPaused: false,
+          fit: BoxFit.cover,
+          animation: "walk",));
     }
   }
 }

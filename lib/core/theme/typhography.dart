@@ -19,6 +19,9 @@ TextStyle hl4 = GoogleFonts.lato(
     textStyle: TextStyle(
         fontSize: 45, color: Colors.white,letterSpacing: 1.4, fontWeight: FontWeight.w300));
 
+TextStyle writeStyle = GoogleFonts.lato(
+    textStyle: TextStyle(
+        fontSize: 22, color: Colors.white,letterSpacing: 1, fontWeight: FontWeight.w600));
 TextStyle subtitleTextStyle = GoogleFonts.openSans(
     textStyle:
         const TextStyle(fontSize: 14, color: wsecondary, letterSpacing: 1));

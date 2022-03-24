@@ -14,6 +14,10 @@ const Color stormy1= Color(0xff5AE4FE);
 const Color stormy2= Color(0xff28e2ce);
 const Color stormy3= Color(0xff26ada0);
 
+const Color rainy1= Color.fromARGB(255, 49, 52, 228);
+const Color rainy2= Color.fromARGB(255, 28, 117, 220);
+const Color rainy3= Color.fromARGB(255, 46, 0, 248);
+
 // appbar 
 const Color appbar= Colors.white24;
 
@@ -28,4 +32,8 @@ cloudy1,cloudy2,cloudy3
 ];
 const List<Color> stormy=[
 stormy1,stormy2,stormy3
+];
+
+const List<Color> rainy=[
+rainy1,rainy2,rainy3
 ];

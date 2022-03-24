@@ -1,3 +1,4 @@
+import 'package:assignment/logic/cubit/city_cubit.dart';
 import 'package:assignment/logic/cubit/wheather_cubit.dart';
 import 'package:assignment/navigation/router.gr.dart';
 
@@ -27,7 +28,13 @@ class _AppState extends State<App> {
             return WheatherCubit(apiRepository: APIRepository());
           },
           // child: ViewNavigation(),
-        )
+        ), 
+            BlocProvider<CityCubit>(
+          create: (BuildContext context) {
+            return CityCubit(apiRepository: APIRepository());
+          },
+          // child: ViewNavigation(),
+        ), 
       ],
       child: MaterialApp.router(
         title: 'Wheather Application',
